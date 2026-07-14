@@ -1,0 +1,76 @@
+.playlist-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.playlist-list__empty {
+  padding: 12px 4px;
+  color: var(--text-faint);
+  font-size: 12px;
+  font-family: var(--font-label);
+}
+
+.playlist-list__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+
+.playlist-list__item:hover {
+  background: var(--panel-raised);
+}
+
+.playlist-list__item[data-active='true'] {
+  background: var(--deck-a-dim);
+}
+
+.playlist-list__favorite {
+  background: none;
+  border: none;
+  color: var(--text-faint);
+  cursor: pointer;
+  font-size: 13px;
+  padding: 0;
+}
+
+.playlist-list__favorite[data-active='true'] {
+  color: var(--led-amber);
+}
+
+.playlist-list__name {
+  flex: 1;
+  font-size: 13px;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.playlist-list__count {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+.playlist-list__delete {
+  background: none;
+  border: none;
+  color: var(--text-faint);
+  cursor: pointer;
+  font-size: 11px;
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+
+.playlist-list__item:hover .playlist-list__delete {
+  opacity: 1;
+}
+
+.playlist-list__delete:hover {
+  color: var(--danger);
+}

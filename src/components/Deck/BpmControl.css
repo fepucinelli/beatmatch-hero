@@ -1,0 +1,106 @@
+.bpm-control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  background: var(--panel-recessed);
+  box-shadow: var(--shadow-recessed);
+  width: 128px;
+}
+
+.bpm-control__row {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.bpm-control__input {
+  width: 72px;
+  background: transparent;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 26px;
+  text-align: right;
+  color: var(--led-amber);
+  text-shadow: 0 0 8px rgba(255, 176, 32, 0.45);
+  outline: none;
+  -moz-appearance: textfield;
+}
+
+.bpm-control__input::-webkit-outer-spin-button,
+.bpm-control__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.bpm-control__input::placeholder {
+  color: rgba(255, 176, 32, 0.25);
+}
+
+.bpm-control__unit {
+  font-family: var(--font-label);
+  font-size: 11px;
+  color: var(--text-faint);
+  letter-spacing: 0.5px;
+}
+
+.bpm-control__tap {
+  width: 100%;
+  padding: 6px 0;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--hairline-strong);
+  background: var(--panel-raised);
+  color: var(--text-dim);
+  font-family: var(--font-label);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: transform 0.06s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+[data-deck='A'] .bpm-control__tap:active {
+  color: var(--deck-a);
+  border-color: var(--deck-a);
+  transform: scale(0.96);
+}
+
+[data-deck='B'] .bpm-control__tap:active {
+  color: var(--deck-b);
+  border-color: var(--deck-b);
+  transform: scale(0.96);
+}
+
+.bpm-control__effective {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+@media (max-width: 640px) {
+  .bpm-control {
+    width: 92px;
+    padding: 6px 8px;
+    gap: 4px;
+  }
+
+  .bpm-control__input {
+    width: 48px;
+    font-size: 16px;
+  }
+
+  .bpm-control__unit {
+    font-size: 9px;
+  }
+
+  .bpm-control__tap {
+    font-size: 9px;
+    padding: 4px 0;
+    letter-spacing: 1px;
+  }
+
+  .bpm-control__effective {
+    font-size: 9px;
+  }
+}

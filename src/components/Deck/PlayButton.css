@@ -1,0 +1,54 @@
+.play-button {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dim);
+  background: radial-gradient(circle at 35% 30%, #2c2c31, #1a1a1d 70%);
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.6),
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 -4px 8px rgba(0, 0, 0, 0.4) inset;
+  cursor: pointer;
+  transition: color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.play-button:hover:not(:disabled) {
+  color: var(--text);
+}
+
+.play-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.play-button[data-playing='true'][data-deck='A'] {
+  color: var(--deck-a);
+  box-shadow:
+    0 0 12px var(--deck-a-glow),
+    0 1px 0 rgba(255, 255, 255, 0.08) inset,
+    0 -4px 8px rgba(0, 0, 0, 0.4) inset;
+}
+
+.play-button[data-playing='true'][data-deck='B'] {
+  color: var(--deck-b);
+  box-shadow:
+    0 0 12px var(--deck-b-glow),
+    0 1px 0 rgba(255, 255, 255, 0.08) inset,
+    0 -4px 8px rgba(0, 0, 0, 0.4) inset;
+}
+
+@media (max-width: 640px) {
+  .play-button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .play-button svg {
+    width: 14px;
+    height: 14px;
+  }
+}

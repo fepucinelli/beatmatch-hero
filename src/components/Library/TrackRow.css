@@ -1,0 +1,88 @@
+.track-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 10px;
+  border-radius: var(--radius-sm);
+  transition: background 0.12s ease;
+}
+
+.track-row:hover {
+  background: var(--panel-raised);
+}
+
+.track-row__favorite {
+  background: none;
+  border: none;
+  font-size: 15px;
+  color: var(--text-faint);
+  cursor: pointer;
+  padding: 2px;
+  line-height: 1;
+}
+
+.track-row__favorite[data-active='true'] {
+  color: var(--led-amber);
+}
+
+.track-row__info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.track-row__name {
+  font-size: 13.5px;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.track-row__meta {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--text-faint);
+}
+
+.track-row__actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.track-row__deck-btn {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  padding: 4px 7px;
+  border-radius: 3px;
+  border: 1px solid var(--hairline-strong);
+  background: transparent;
+  color: var(--text-faint);
+  cursor: pointer;
+  transition: color 0.12s ease, border-color 0.12s ease;
+}
+
+.track-row__deck-btn[data-deck='A']:hover {
+  color: var(--deck-a);
+  border-color: var(--deck-a);
+}
+
+.track-row__deck-btn[data-deck='B']:hover {
+  color: var(--deck-b);
+  border-color: var(--deck-b);
+}
+
+.track-row__delete {
+  background: none;
+  border: none;
+  color: var(--text-faint);
+  cursor: pointer;
+  font-size: 11px;
+  padding: 2px 4px;
+}
+
+.track-row__delete:hover {
+  color: var(--danger);
+}

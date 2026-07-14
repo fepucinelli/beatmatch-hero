@@ -1,0 +1,68 @@
+.cue-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 52px;
+  padding: 6px 0;
+  border-radius: var(--radius-sm);
+  border: none;
+  color: var(--text-dim);
+  background: linear-gradient(180deg, #2c2c31, #1a1a1d 70%);
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.6),
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 -3px 6px rgba(0, 0, 0, 0.35) inset;
+  cursor: pointer;
+  transition: transform 0.06s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.cue-button span {
+  font-family: var(--font-label);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.cue-button:hover:not(:disabled) {
+  color: var(--text);
+}
+
+.cue-button:active:not(:disabled) {
+  transform: scale(0.94);
+}
+
+.cue-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.cue-button[data-deck='A']:active:not(:disabled) {
+  color: var(--deck-a);
+  box-shadow:
+    0 0 8px var(--deck-a-glow),
+    0 1px 0 rgba(255, 255, 255, 0.06) inset;
+}
+
+.cue-button[data-deck='B']:active:not(:disabled) {
+  color: var(--deck-b);
+  box-shadow:
+    0 0 8px var(--deck-b-glow),
+    0 1px 0 rgba(255, 255, 255, 0.06) inset;
+}
+
+@media (max-width: 640px) {
+  .cue-button {
+    width: 36px;
+    padding: 4px 0;
+  }
+
+  .cue-button svg {
+    width: 11px;
+    height: 11px;
+  }
+
+  .cue-button span {
+    font-size: 7.5px;
+  }
+}

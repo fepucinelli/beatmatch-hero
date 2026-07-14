@@ -1,0 +1,181 @@
+.platter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.platter__disc {
+  width: 148px;
+  height: 148px;
+  border-radius: 50%;
+  position: relative;
+  background: repeating-radial-gradient(
+    circle at center,
+    #1c1c1f 0px,
+    #1c1c1f 2px,
+    #131315 3px,
+    #131315 4px
+  );
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(0, 0, 0, 0.5),
+    inset 0 0 20px rgba(0, 0, 0, 0.5);
+  animation: spin 2.4s linear infinite;
+  animation-play-state: paused;
+}
+
+.platter__disc[data-spinning='true'] {
+  animation-play-state: running;
+}
+
+.platter__grooves {
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.06), transparent 45%);
+}
+
+.platter__label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 52px;
+  height: 52px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 35% 30%, var(--panel-raised), var(--panel-recessed) 75%);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.6) inset;
+}
+
+.platter__label::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--groove);
+  position: absolute;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.platter__label-deck {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+[data-deck='A'] .platter__label-deck {
+  color: var(--deck-a);
+}
+
+[data-deck='B'] .platter__label-deck {
+  color: var(--deck-b);
+}
+
+.platter__track-name {
+  font-family: var(--font-label);
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  max-width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.platter__time {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 200px;
+}
+
+.platter__time-current,
+.platter__time-total {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-faint);
+  min-width: 30px;
+}
+
+.platter__time-current {
+  color: var(--led-amber);
+  text-align: right;
+}
+
+.platter__time-total {
+  text-align: left;
+}
+
+.platter__time-bar {
+  flex: 1;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--groove);
+  overflow: hidden;
+}
+
+.platter__time-bar-fill {
+  height: 100%;
+  background: var(--text-faint);
+  transition: width 0.15s linear;
+}
+
+[data-deck='A'] .platter__time-bar-fill {
+  background: var(--deck-a);
+}
+
+[data-deck='B'] .platter__time-bar-fill {
+  background: var(--deck-b);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .platter {
+    gap: 6px;
+  }
+
+  .platter__disc {
+    width: 76px;
+    height: 76px;
+  }
+
+  .platter__label {
+    width: 28px;
+    height: 28px;
+  }
+
+  .platter__label-deck {
+    font-size: 10px;
+  }
+
+  .platter__track-name {
+    font-size: 9.5px;
+    max-width: 140px;
+  }
+
+  .platter__time {
+    max-width: 140px;
+    gap: 5px;
+  }
+
+  .platter__time-current,
+  .platter__time-total {
+    font-size: 9px;
+    min-width: 22px;
+  }
+}
