@@ -27,7 +27,7 @@ export function PitchFader({ deck, value, range, onChange }: PitchFaderProps) {
       const track = trackRef.current
       if (!track) return value
       const rect = track.getBoundingClientRect()
-      const fraction = 1 - (clientY - rect.top) / rect.height
+      const fraction = (clientY - rect.top) / rect.height
       const raw = (fraction * 2 - 1) * range
       const clamped = clampPitchPercent(raw, range)
       return Math.abs(clamped) < DETENT_WINDOW ? 0 : Math.round(clamped * 10) / 10
@@ -75,9 +75,9 @@ export function PitchFader({ deck, value, range, onChange }: PitchFaderProps) {
   )
 
   const fraction = (value + range) / (range * 2)
-  const capPositionPercent = (1 - fraction) * 100
+  const capPositionPercent = fraction * 100
 
-  const ticks = range === 8 ? [8, 4, 0, -4, -8] : [16, 8, 0, -8, -16]
+  const ticks = range === 8 ? [-8, -4, 0, 4, 8] : [-16, -8, 0, 8, 16]
 
   return (
     <div className="pitch-fader" data-deck={deck}>
