@@ -18,6 +18,24 @@ function formatPitch(value: number): string {
   return `${sign}${Math.abs(value).toFixed(1)}%`
 }
 
+interface TickMark {
+  value: number
+  major: boolean
+}
+
+function buildTicks(range: PitchRange): TickMark[] {
+  // Labeled ticks every range/4 (2 for +/-8%, 4 for +/-16%), with an
+  // unlabeled dash evenly spaced at the midpoint between each pair.
+  const majorStep = range / 4
+  const minorStep = majorStep / 2
+  const ticks: TickMark[] = []
+  for (let value = range; value >= -range; value -= minorStep) {
+    const rounded = Math.round(value * 10) / 10
+    ticks.push({ value: rounded, major: Math.round(rounded / majorStep) === rounded / majorStep })
+  }
+  return ticks
+}
+
 export function PitchFader({ deck, value, range, onChange }: PitchFaderProps) {
   const trackRef = useRef<HTMLDivElement>(null)
   const draggingRef = useRef(false)
@@ -77,15 +95,17 @@ export function PitchFader({ deck, value, range, onChange }: PitchFaderProps) {
   const fraction = (value + range) / (range * 2)
   const capPositionPercent = fraction * 100
 
-  const ticks = range === 8 ? [-8, -4, 0, 4, 8] : [-16, -8, 0, 8, 16]
+  const ticks = buildTicks(range)
 
   return (
     <div className="pitch-fader" data-deck={deck}>
       <div className="pitch-fader__ticks" aria-hidden="true">
         {ticks.map((tick) => (
-          <div className="pitch-fader__tick" key={tick} data-zero={tick === 0}>
+          <div className="pitch-fader__tick" key={tick.value} data-zero={tick.value === 0} data-major={tick.major}>
             <span className="pitch-fader__tick-mark" />
-            <span className="pitch-fader__tick-label">{tick > 0 ? `+${tick}` : tick}</span>
+            {tick.major && (
+              <span className="pitch-fader__tick-label">{tick.value > 0 ? `+${tick.value}` : tick.value}</span>
+            )}
           </div>
         ))}
       </div>
