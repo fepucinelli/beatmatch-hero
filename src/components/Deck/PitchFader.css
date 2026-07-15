@@ -163,43 +163,43 @@
 
   .pitch-fader__ticks {
     height: 100%;
-    padding: 6px 0;
+    padding: 8px 0;
   }
 
   .pitch-fader__tick {
-    gap: 4px;
+    gap: 5px;
   }
 
   .pitch-fader__tick-mark {
-    width: 6px;
+    width: 8px;
   }
 
   .pitch-fader__tick[data-zero='true'] .pitch-fader__tick-mark {
-    width: 10px;
+    width: 13px;
   }
 
   .pitch-fader__tick-label {
-    font-size: 9px;
-    min-width: 15px;
+    font-size: 10.5px;
+    min-width: 18px;
   }
 
   .pitch-fader__track {
-    width: 46px;
+    width: 58px;
     height: 100%;
   }
 
   .pitch-fader__cap {
-    width: 42px;
-    height: 24px;
+    width: 52px;
+    height: 30px;
   }
 
   .pitch-fader__cap-grip {
-    width: 24px;
+    width: 30px;
   }
 
   .pitch-fader__readout {
-    font-size: 13px;
-    min-width: 30px;
+    font-size: 15px;
+    min-width: 34px;
     letter-spacing: 0.5px;
   }
 }

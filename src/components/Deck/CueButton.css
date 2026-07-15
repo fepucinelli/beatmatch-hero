@@ -53,17 +53,17 @@
 
 @media (max-width: 640px) {
   .cue-button {
-    width: 54px;
-    padding: 7px 0;
-    gap: 5px;
+    width: 64px;
+    padding: 9px 0;
+    gap: 6px;
   }
 
   .cue-button svg {
-    width: 17px;
-    height: 17px;
+    width: 20px;
+    height: 20px;
   }
 
   .cue-button span {
-    font-size: 10px;
+    font-size: 11px;
   }
 }

@@ -126,18 +126,21 @@
 
 @media (max-width: 640px) {
   .app__header {
+    min-height: 50px;
     padding: 10px 14px;
   }
 
   .app__main {
-    padding: 10px 10px 14px;
-    gap: 10px;
+    padding: 8px 8px 14px;
+    gap: 14px;
   }
 
   .app__mixer {
     grid-template-rows: minmax(0, 1fr);
-    min-height: 0;
-    gap: 8px;
+    /* Fill (almost) the full first screen so the mixer/faders own the
+       initial view; the sidebar below is reached by scrolling. */
+    min-height: calc(100svh - 90px);
+    gap: 6px;
     align-items: stretch;
   }
 
@@ -147,7 +150,7 @@
   }
 
   .app__sidebar {
-    max-height: 190px;
+    max-height: 65svh;
     padding: 12px;
   }
 }
