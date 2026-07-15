@@ -126,20 +126,28 @@
 
 @media (max-width: 640px) {
   .app__header {
-    padding: 14px 14px;
+    padding: 10px 14px;
   }
 
   .app__main {
-    padding: 14px 12px 20px;
-    gap: 14px;
+    padding: 10px 10px 14px;
+    gap: 10px;
   }
 
   .app__mixer {
-    gap: 10px;
+    grid-template-rows: minmax(0, 1fr);
+    min-height: 0;
+    gap: 8px;
+    align-items: stretch;
   }
 
   .app__mixer > .deck[data-deck='A'],
   .app__mixer > .deck[data-deck='B'] {
     justify-self: stretch;
+  }
+
+  .app__sidebar {
+    max-height: 190px;
+    padding: 12px;
   }
 }

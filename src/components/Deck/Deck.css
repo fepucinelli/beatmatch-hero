@@ -74,19 +74,23 @@
   .deck {
     min-width: 0;
     width: 100%;
-    gap: 12px;
-    padding: 12px 8px 16px;
+    height: 100%;
+    min-height: 0;
+    gap: 10px;
+    padding: 10px 8px 12px;
   }
 
   .deck__transport {
-    gap: 8px;
+    gap: 10px;
   }
 
   .deck__buttons {
-    gap: 5px;
+    gap: 6px;
   }
 
   .deck__pitch-section {
+    flex: 1;
+    min-height: 0;
     gap: 8px;
   }
 }
