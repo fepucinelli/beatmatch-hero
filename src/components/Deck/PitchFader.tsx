@@ -29,7 +29,7 @@ function buildTicks(range: PitchRange): TickMark[] {
   const majorStep = range / 4
   const minorStep = majorStep / 2
   const ticks: TickMark[] = []
-  for (let value = range; value >= -range; value -= minorStep) {
+  for (let value = -range; value <= range; value += minorStep) {
     const rounded = Math.round(value * 10) / 10
     ticks.push({ value: rounded, major: Math.round(rounded / majorStep) === rounded / majorStep })
   }

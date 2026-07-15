@@ -12,6 +12,7 @@
   justify-content: space-between;
   height: 236px;
   padding: 4px 0;
+  pointer-events: none;
 }
 
 .pitch-fader__tick {
@@ -151,6 +152,7 @@
   text-align: center;
   writing-mode: vertical-rl;
   letter-spacing: 1px;
+  pointer-events: none;
 }
 
 @media (max-width: 640px) {
